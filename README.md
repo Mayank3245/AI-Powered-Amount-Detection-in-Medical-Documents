@@ -208,8 +208,6 @@ Step 4 (Final Output): Returns structured JSON
 
 ## 🔮 Potential Improvements
 
-Integrate AI-based contextual understanding for better classification
-
 Support multi-currency detection (USD, EUR, GBP)
 
 Add PDF parsing for digital receipts
@@ -230,6 +228,7 @@ Implement Redis caching for OCR optimization
 | Image Preprocessing | Sharp             |
 | File Upload         | Multer            |
 | Config              | dotenv            |
+| AI      |           | GEMINI LLM model  |
 
 
 
@@ -262,5 +261,6 @@ Auto-cleans temporary uploads after use
 Confidence scores returned at every stage
 
 Ideal for medical billing, expense automation, or invoice analysis
+
 
 
