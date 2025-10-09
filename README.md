@@ -41,6 +41,7 @@ Discount: 10%
 
 
 ### Sample Final Output
+```
 {
  "currency": "INR",
  "amounts": [
@@ -50,11 +51,11 @@ Discount: 10%
  ],
  "status":"ok"
 }
-
+```
 ## 🧱 Architecture
 🧩 Flow
 
-
+```
  Input (Text or Image)                   
        ↓
  Step 1: OCR Extraction
@@ -64,6 +65,7 @@ Discount: 10%
  Step 3: Classification (assign labels)
        ↓
  Step 4: Finalization (structured JSON)
+```
 
 📂 Folder Structure
 
@@ -86,7 +88,7 @@ Although this backend is stateless, internal modules handle state transitions lo
 ## ⚙️ Setup Instructions
 
 Prerequisites
-
+```
 Node.js v18 or newer
 
 npm or yarn
@@ -104,7 +106,7 @@ npm start
 
 Server runs at:
 👉 http://localhost:5000
-
+```
 ## 🌐 API Routes and Usage
 
 | Step | Endpoint               | Input Type   | Description                   |
@@ -116,33 +118,35 @@ Server runs at:
 
 
 ## 🧪 Example Workflow
-
+```
  Input:
 {
   "text": "Total: INR 1200\nPaid: 1000\nDue: 200\nDiscount: 10%"
 }
-
+```
 🔹 Step 1 - Extraction
 
 POST /api/step1_extract
-
+```
 {
   "raw_tokens": ["1200", "1000", "200", "10%"],
   "currency_hint": "INR",
   "confidence": 0.87
 }
-
+```
 🔹 Step 2 - Normalization
 
 POST /api/step2_normalize
-
+```
 {
   "normalized_amounts": [1200, 1000, 200, 10],
   "normalization_confidence": 0.9
 }
+```
 🔹 Step 3 - Classification
 
 POST /api/step3_classify
+```
 {
   "amounts": [
     { "type": "total_bill", "value": 1200 },
@@ -152,12 +156,12 @@ POST /api/step3_classify
   ],
   "confidence": 0.85
 }
-
+```
 
 🔹 Step 4 - Final Output
 
 POST /api/step4_finalize
-
+```
 {
   "currency": "INR",
   "amounts": [
@@ -168,7 +172,7 @@ POST /api/step4_finalize
   ],
   "status": "ok"
 }
-
+```
 ## Screenshots 
 <img width="365" height="123" alt="img" src="https://github.com/user-attachments/assets/0f252236-c2ff-40f8-b33d-b48d2e6afc7f" />
 
@@ -207,7 +211,7 @@ Step 4 (Final Output): Returns structured JSON
 
 
 ## 🔮 Potential Improvements
-
+```
 Support multi-currency detection (USD, EUR, GBP)
 
 Add PDF parsing for digital receipts
@@ -217,7 +221,7 @@ Improve OCR accuracy for handwritten bills
 Add frontend dashboard for visual results
 
 Implement Redis caching for OCR optimization
-
+```
 
 ## ⚙️ Tech Stack
 
@@ -251,7 +255,7 @@ Backend Engineer | OCR + AI Systems
 
 
 ## ✅ Final Notes
-
+```
 Fully modular — each route works independently
 
 Works with both text and image inputs
@@ -261,6 +265,7 @@ Auto-cleans temporary uploads after use
 Confidence scores returned at every stage
 
 Ideal for medical billing, expense automation, or invoice analysis
+```
 
 
 
